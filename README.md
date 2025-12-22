@@ -23,31 +23,31 @@ A modern, responsive landing page template built with Next.js, Tailwind CSS, and
 
 1. Clone the repository:
 
-```bash
+\`\`\`bash
 git clone https://github.com/akash3444/pure-landing-shadcnui-template.git
 cd pure-landing-shadcnui-template
-```
+\`\`\`
 
 2. To use Tailwind CSS v4.0:
 
 - Ensure you’re using Node.js 20 or higher.
 - Switch to the tailwind-v4 branch:
 
-```bash
+\`\`\`bash
 git checkout tailwind-v4
-```
+\`\`\`
 
 3. Install dependencies:
 
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 4. Start the development server:
 
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 

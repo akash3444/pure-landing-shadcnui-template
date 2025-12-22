@@ -1,8 +1,8 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import Marquee from "@/components/ui/marquee";
-import Link from "next/link";
-import React, { ComponentProps } from "react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import Marquee from "@/components/ui/marquee"
+import Link from "next/link"
+import type { ComponentProps } from "react"
 
 const testimonials = [
   {
@@ -19,8 +19,7 @@ const testimonials = [
     name: "Sophia Lee",
     designation: "Data Analyst",
     company: "InsightTech",
-    testimonial:
-      "This tool has saved me hours of work! The analytics and reporting features are incredibly powerful.",
+    testimonial: "This tool has saved me hours of work! The analytics and reporting features are incredibly powerful.",
     avatar: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
@@ -28,8 +27,7 @@ const testimonials = [
     name: "Michael Johnson",
     designation: "UX Designer",
     company: "DesignPro",
-    testimonial:
-      "An amazing tool that simplifies complex tasks. Highly recommended for professionals in the industry.",
+    testimonial: "An amazing tool that simplifies complex tasks. Highly recommended for professionals in the industry.",
     avatar: "https://randomuser.me/api/portraits/men/3.jpg",
   },
   {
@@ -37,8 +35,7 @@ const testimonials = [
     name: "Emily Davis",
     designation: "Marketing Specialist",
     company: "BrandBoost",
-    testimonial:
-      "I've seen a significant improvement in our team's productivity since we started using this service.",
+    testimonial: "I've seen a significant improvement in our team's productivity since we started using this service.",
     avatar: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
@@ -46,8 +43,7 @@ const testimonials = [
     name: "Daniel Martinez",
     designation: "Full-Stack Developer",
     company: "CodeCrafters",
-    testimonial:
-      "The best investment we've made! The support team is also super responsive and helpful.",
+    testimonial: "The best investment we've made! The support team is also super responsive and helpful.",
     avatar: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
@@ -55,73 +51,65 @@ const testimonials = [
     name: "Jane Smith",
     designation: "Product Manager",
     company: "InnovateX",
-    testimonial:
-      "The user experience is top-notch! The interface is clean, intuitive, and easy to navigate.",
+    testimonial: "The user experience is top-notch! The interface is clean, intuitive, and easy to navigate.",
     avatar: "https://randomuser.me/api/portraits/women/2.jpg",
   },
-];
+]
 
 const Testimonials = () => (
   <div id="testimonials" className="flex justify-center items-center py-20">
     <div className="h-full w-full">
-      <h2 className="mb-12 text-4xl md:text-5xl font-bold text-center tracking-tight px-6">
-        Testimonials
-      </h2>
+      <h2 className="mb-12 text-4xl md:text-5xl font-bold text-center tracking-tight px-6">Testimonials</h2>
       <div className="relative">
-        <div className="z-10 absolute left-0 inset-y-0 w-[15%] bg-gradient-to-r from-background to-transparent" />
-        <div className="z-10 absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-background to-transparent" />
-        <Marquee pauseOnHover className="[--duration:20s]">
+        <div className="z-10 absolute left-0 inset-y-0 bg-gradient-to-r from-background via-background/80 to-transparent w-3/12" />
+        <div className="z-10 absolute right-0 inset-y-0 bg-gradient-to-l from-background via-background/80 to-transparent w-3/12" />
+        <Marquee pauseOnHover className="[--duration:35s]">
           <TestimonialList />
         </Marquee>
-        <Marquee pauseOnHover reverse className="mt-0 [--duration:20s]">
+        <Marquee pauseOnHover reverse className="mt-0 [--duration:35s]">
           <TestimonialList />
         </Marquee>
       </div>
     </div>
   </div>
-);
+)
 
-const TestimonialList = () =>
-  testimonials.map((testimonial) => (
-    <div
-      key={testimonial.id}
-      className="min-w-96 max-w-sm bg-accent rounded-xl p-6"
-    >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Avatar>
-            <AvatarFallback className="text-xl font-medium bg-primary text-primary-foreground">
-              {testimonial.name.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-lg font-semibold">{testimonial.name}</p>
-            <p className="text-sm text-gray-500">{testimonial.designation}</p>
+const TestimonialList = () => (
+  <>
+    {testimonials.map((testimonial) => (
+      <div key={testimonial.id} className="min-w-96 max-w-sm bg-accent rounded-xl p-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Avatar>
+              <AvatarFallback className="text-xl font-medium bg-primary text-primary-foreground">
+                {testimonial.name.charAt(0)}
+              </AvatarFallback>
+            </Avatar>
+            <div>
+              <p className="text-lg font-semibold">{testimonial.name}</p>
+              <p className="text-sm text-gray-500">{testimonial.designation}</p>
+            </div>
           </div>
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="#" target="_blank">
+              <TwitterLogo className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
-        <Button variant="ghost" size="icon" asChild>
-          <Link href="#" target="_blank">
-            <TwitterLogo className="w-4 h-4" />
-          </Link>
-        </Button>
+        <p className="mt-5 text-[17px]">{testimonial.testimonial}</p>
       </div>
-      <p className="mt-5 text-[17px]">{testimonial.testimonial}</p>
-    </div>
-  ));
+    ))}
+  </>
+)
 
 const TwitterLogo = (props: ComponentProps<"svg">) => (
-  <svg
-    role="img"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>X</title>
     <path
       fill="currentColor"
       d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
     />
   </svg>
-);
+)
 
-export default Testimonials;
+export default Testimonials
